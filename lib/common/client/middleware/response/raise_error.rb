@@ -17,6 +17,7 @@ module Common
 
           def on_complete(env)
             return if env.success?
+            binding.pry; fail
 
             @body = env[:body]
             @status = env.status.to_i
