@@ -132,6 +132,15 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
       let(:address) { build(:vet360_address, :override) }
 
       it 'will override the address error', run_at: '2019-10-28 18:59:37 -0700' do
+        address.address_line1 = '225 irving'
+        address.address_line2 = 'unit 1'
+        address.city = 'San Francisco'
+        address.state_code = 'ca'
+        address.zip_code = 'zip_code'
+
+        res = JSON.parse(Vet360::AddressValidation::Service.new.address_suggestions(address).to_json)
+        address.validation_key = res['validation_key']
+        response = subject.put_address(address)
         binding.pry; fail
         VCR.use_cassette(
           'vet360/contact_information/put_address_override',

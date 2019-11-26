@@ -55,6 +55,7 @@ module Common
       end
 
       def raise_backend_exception(key, source, error = nil)
+        binding.pry; fail
         raise Common::Exceptions::BackendServiceException.new(
           key,
           { source: source.to_s },
