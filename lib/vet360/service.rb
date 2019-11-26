@@ -37,6 +37,7 @@ module Vet360
     end
 
     def handle_error(error)
+      binding.pry; fail
       case error
       when Common::Client::Errors::ParsingError # Vet360 sent a non-JSON response
         Raven.extra_context(
