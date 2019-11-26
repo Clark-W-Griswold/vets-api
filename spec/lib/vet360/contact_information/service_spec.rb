@@ -132,6 +132,9 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
       let(:address) { build(:vet360_address, :override) }
 
       it 'will override the address error', run_at: '2019-10-28 18:59:37 -0700' do
+        VCR.configure do |c|
+          c.allow_http_connections_when_no_cassette = true
+        end
         address.address_line1 = '225 irving'
         address.address_line2 = 'unit 1'
         address.city = 'San Francisco'
