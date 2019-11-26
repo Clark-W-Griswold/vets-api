@@ -138,7 +138,6 @@ group :development, :test do
   gem 'awesome_print', '~> 1.8' # Pretty print your Ruby objects in full color and with proper indentation
   gem 'brakeman', '~> 4.7'
   gem 'bundler-audit'
-  gem 'byebug', platforms: :ruby # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'danger'
   gem 'database_cleaner'
   gem 'factory_bot_rails', '> 5'
@@ -148,7 +147,7 @@ group :development, :test do
   gem 'fuubar'
   gem 'guard-rspec', '~> 4.7'
   gem 'overcommit'
-  gem 'pry-byebug'
+  gem 'pry'
   gem 'rack-test', require: 'rack/test'
   gem 'rack-vcr'
   gem 'rainbow' # Used to colorize output for rake tasks
