@@ -143,6 +143,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
 
         res = JSON.parse(Vet360::AddressValidation::Service.new.address_suggestions(address).to_json)
         address.validation_key = res['validation_key']
+        binding.pry; fail
         response = subject.put_address(address)
         binding.pry; fail
         VCR.use_cassette(
