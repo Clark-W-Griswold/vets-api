@@ -132,7 +132,6 @@ module Vet360
             requestCountry: {
               countryCode: @country_code_iso3
             },
-            addressLine2: '',
             addressPOU: "CORRESPONDENCE",
             stateProvince: {
               code: @state_code,
@@ -141,6 +140,8 @@ module Vet360
             zipCode5: @zip_code,
             zipCode4: @zip_code_suffix
           )
+        ).merge(
+          addressLine2: ''
         )
       end
 
