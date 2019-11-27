@@ -141,6 +141,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         # address.state_code = 'ca'
         # address.zip_code = '94122'
         address.address_line1 = '36311 coronado dr'
+        address.address_line2 = ''
         address.state_code = 'ca'
         address.zip_code = '94536'
         res = Vet360::AddressValidation::Service.new.validate(address)
