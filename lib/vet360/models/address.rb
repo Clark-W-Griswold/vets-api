@@ -132,6 +132,8 @@ module Vet360
             requestCountry: {
               countryCode: @country_code_iso3
             },
+            addressLine2: '',
+            addressPOU: "CORRESPONDENCE",
             stateProvince: {
               code: @state_code,
               name: @province
