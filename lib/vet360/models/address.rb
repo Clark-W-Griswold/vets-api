@@ -141,7 +141,7 @@ module Vet360
             zipCode4: @zip_code_suffix
           )
         )
-        return_val[:requestAddress][:address_line2] = ''
+        return_val[:requestAddress][:addressLine2] = ''
         return_val
       end
 
