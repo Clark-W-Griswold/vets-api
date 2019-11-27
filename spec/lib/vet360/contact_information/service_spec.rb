@@ -143,6 +143,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.address_line1 = '36311 coronado dr'
         address.address_line2 = ''
         address.state_code = 'ca'
+        address.city = 'fremont'
         address.zip_code = '94536'
         res = JSON.parse(Vet360::AddressValidation::Service.new.address_suggestions(address).to_json)
         address.validation_key = res['validation_key']
