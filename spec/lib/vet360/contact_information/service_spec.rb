@@ -139,7 +139,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.address_line2 = 'unit 1'
         address.city = 'San Francisco'
         address.state_code = 'ca'
-        address.zip_code = 'zip_code'
+        address.zip_code = '94122'
 
         res = JSON.parse(Vet360::AddressValidation::Service.new.address_suggestions(address).to_json)
         address.validation_key = res['validation_key']
