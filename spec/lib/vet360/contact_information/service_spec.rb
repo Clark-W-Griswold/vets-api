@@ -135,11 +135,16 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         VCR.configure do |c|
           c.allow_http_connections_when_no_cassette = true
         end
-        address.address_line1 = '225 irving'
-        address.address_line2 = 'unit 1'
-        address.city = 'San Francisco'
+        # address.address_line1 = '225 irving'
+        # address.address_line2 = 'unit 1'
+        # address.city = 'San Francisco'
+        # address.state_code = 'ca'
+        # address.zip_code = '94122'
+        address.address_line1 = '36311 coronado dr'
         address.state_code = 'ca'
-        address.zip_code = '94122'
+        address.zip_code = '94536'
+        res = Vet360::AddressValidation::Service.new.validate(address)
+        binding.pry; fail
 
         res = JSON.parse(Vet360::AddressValidation::Service.new.address_suggestions(address).to_json)
         address.validation_key = res['validation_key']
