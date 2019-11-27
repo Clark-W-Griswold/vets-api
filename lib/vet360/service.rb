@@ -12,6 +12,7 @@ module Vet360
 
     def perform(method, path, body = nil, headers = {})
       log_dates(body)
+      puts body
 
       Vet360::Stats.increment('total_operations')
       config.base_request_headers.merge(headers)
