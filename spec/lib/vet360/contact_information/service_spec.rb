@@ -144,9 +144,6 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.address_line2 = ''
         address.state_code = 'ca'
         address.zip_code = '94536'
-        res = Vet360::AddressValidation::Service.new.validate(address)
-        binding.pry; fail
-
         res = JSON.parse(Vet360::AddressValidation::Service.new.address_suggestions(address).to_json)
         address.validation_key = res['validation_key']
         binding.pry; fail
