@@ -59,6 +59,23 @@ RSpec.describe V0::Profile::AddressValidationController, type: :controller do
 
     context 'with a found address' do
       it 'returns suggested addresses for a given address' do
+        VCR.configure do |c|
+          c.allow_http_connections_when_no_cassette = true
+        end
+        hash = {"id"=>107667,
+         "address_line1"=>"225 irving",
+         "address_line2"=>"unit 1",
+         "address_type"=>"DOMESTIC",
+         "country_name"=>"United States",
+         "city"=>"San Francisco",
+         "country_code_iso3"=>"USA",
+         "state_code"=>"CA",
+         "zip_code"=>"94122",
+         "validation_key"=>-1379324044,
+         "address_pou"=>"CORRESPONDENCE"}
+        binding.pry; fail
+
+        post(:create, params: { address: hash.to_h })
         VCR.use_cassette(
           'vet360/address_validation/validate_match',
           VCR::MATCH_EVERYTHING
