@@ -9,6 +9,7 @@ module Vet360
 
       def address_suggestions(address)
         validate_res = validate(address)
+        puts validate_res
         validation_key = validate_res['address_meta_data']['validation_key']
         candidate_res = candidate(address)
 
