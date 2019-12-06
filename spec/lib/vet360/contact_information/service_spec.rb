@@ -140,6 +140,8 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.city = 'sdfsdf'
         address.state_code = 'XX'
         address.zip_code = '00000'
+        address.country_name = nil
+        address.country_code_iso3 = 'kjdflkjsdkf'
 
         # address.address_line1 = '36311 coronado dr'
         # address.address_line2 = ''
