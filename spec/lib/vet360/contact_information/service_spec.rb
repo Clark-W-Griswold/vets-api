@@ -148,7 +148,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.city = 'Fremont'
         address.state_code = 'CA'
         address.zip_code = '94536'
-        res = Vet360::AddressValidation::Service.new.validate(address)
+        res = Vet360::AddressValidation::Service.new.candidate(address)
         address.validation_key = res['validation_key']
         binding.pry; fail
         response = subject.put_address(address)
