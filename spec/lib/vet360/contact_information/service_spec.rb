@@ -135,13 +135,13 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         VCR.configure do |c|
           c.allow_http_connections_when_no_cassette = true
         end
-        address.address_line1 = 'sdfsdf'
+        address.address_line1 = ''
         address.address_line2 = ''
-        address.city = 'sdfsdf'
-        address.state_code = 'XX'
-        address.zip_code = '00000'
+        address.city = ''
+        address.state_code = ''
+        address.zip_code = ''
         address.country_name = nil
-        address.country_code_iso3 = 'kjdflkjsdkf'
+        address.country_code_iso3 = ''
 
         # address.address_line1 = '36311 coronado dr'
         # address.address_line2 = ''
