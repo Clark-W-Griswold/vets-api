@@ -135,11 +135,12 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         VCR.configure do |c|
           c.allow_http_connections_when_no_cassette = true
         end
-        # address.address_line1 = 'sdfsdf'
-        # address.address_line2 = ''
-        # address.city = 'San Francisco'
-        # address.state_code = 'CA'
-        # address.zip_code = '94122'
+        address.address_line1 = 'sdfsdf'
+        address.address_line2 = ''
+        address.city = 'sdfsdf'
+        address.state_code = 'XX'
+        address.zip_code = '00000'
+
         # address.address_line1 = '36311 coronado dr'
         # address.address_line2 = ''
         # address.state_code = 'CA'
