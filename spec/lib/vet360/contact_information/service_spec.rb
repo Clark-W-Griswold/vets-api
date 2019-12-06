@@ -135,19 +135,20 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         VCR.configure do |c|
           c.allow_http_connections_when_no_cassette = true
         end
-        address.address_line1 = ''
-        address.address_line2 = ''
-        address.city = ''
-        address.state_code = ''
-        address.zip_code = ''
-        address.country_name = nil
-        address.country_code_iso3 = ''
-
-        # address.address_line1 = '36311 coronado dr'
+        # address.address_line1 = ''
         # address.address_line2 = ''
-        # address.state_code = 'CA'
-        # address.zip_code = '94536'
-        res = Vet360::AddressValidation::Service.new.candidate(address)
+        # address.city = ''
+        # address.state_code = ''
+        # address.zip_code = ''
+        # address.country_name = nil
+        # address.country_code_iso3 = ''
+
+        address.address_line1 = 'sdfsdfsdf'
+        address.address_line2 = ''
+        address.city = 'Fremont'
+        address.state_code = 'CA'
+        address.zip_code = '94536'
+        res = Vet360::AddressValidation::Service.new.validate(address)
         address.validation_key = res['validation_key']
         binding.pry; fail
         response = subject.put_address(address)
