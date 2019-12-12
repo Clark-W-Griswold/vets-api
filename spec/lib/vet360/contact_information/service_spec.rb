@@ -151,6 +151,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.country_name = 'Guam'
         address.country_code_iso3 = 'GUM'
         address.international_postal_code = '96915'
+        address.zip_code = ''
         res = Vet360::AddressValidation::Service.new.candidate(address)
         address.validation_key = res['validation_key']
         binding.pry; fail
