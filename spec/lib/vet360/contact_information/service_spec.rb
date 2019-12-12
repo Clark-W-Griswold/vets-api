@@ -144,11 +144,12 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         # address.country_code_iso3 = ''
         # 167 Osborne Street, Agat, Guam 96915
 
-        address.address_line1 = '167 Osborne Street'
-        address.address_line2 = ''
-        address.city = 'Agat'
-        address.zip_code = '96915'
-        address.state_code = 'GU'
+        address.address_line1 = '225 irving'
+        address.address_line2 = 'unit 1'
+        address.city = 'San Francisco'
+        address.zip_code = '94122'
+        address.state_code = 'CA'
+        address.address_pou = Vet360::Models::Address::CORRESPONDENCE
         res = Vet360::AddressValidation::Service.new.candidate(address)
         address.validation_key = res['candidate_addresses'][0]['address_meta_data']['validation_key']
         binding.pry; fail
