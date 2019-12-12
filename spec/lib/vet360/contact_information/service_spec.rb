@@ -147,8 +147,10 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.address_line1 = '167 Osborne Street'
         address.address_line2 = ''
         address.city = 'Agat'
-        address.state_code = 'GU'
-        address.zip_code = '96915'
+        address.address_type = 'INTERNATIONAL'
+        address.country_name = 'Guam'
+        address.country_code_iso3 = 'GUM'
+        address.international_postal_code = '96915'
         res = Vet360::AddressValidation::Service.new.candidate(address)
         address.validation_key = res['validation_key']
         binding.pry; fail
