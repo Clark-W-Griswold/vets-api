@@ -142,12 +142,13 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         # address.zip_code = ''
         # address.country_name = nil
         # address.country_code_iso3 = ''
+        # 167 Osborne Street, Agat, Guam 96915
 
-        address.address_line1 = 'sdfsdfsdf'
+        address.address_line1 = '167 Osborne Street'
         address.address_line2 = ''
-        address.city = 'Fremont'
-        address.state_code = 'CA'
-        address.zip_code = '94536'
+        address.city = 'Agat'
+        address.state_code = 'GU'
+        address.zip_code = '96915'
         res = Vet360::AddressValidation::Service.new.candidate(address)
         address.validation_key = res['validation_key']
         binding.pry; fail
