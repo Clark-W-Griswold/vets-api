@@ -154,7 +154,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         address.zip_code = nil
         address.state_code = nil
         res = Vet360::AddressValidation::Service.new.candidate(address)
-        address.validation_key = res['validation_key']
+        address.validation_key = res['candidate_addresses'][0]['address_meta_data']['validation_key']
         binding.pry; fail
         response = subject.put_address(address)
         response = subject.get_address_transaction_status(response.transaction.id)
