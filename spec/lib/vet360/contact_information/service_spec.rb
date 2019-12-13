@@ -145,6 +145,7 @@ describe Vet360::ContactInformation::Service, skip_vet360: true do
         # 167 Osborne Street, Agat, Guam 96915
 
         address.address_line1 = '1234 Is This Working Street'
+        address.address_line2 = nil
         address.city = 'Washington'
         address.zip_code = '20571'
         address.state_code = 'DC'
