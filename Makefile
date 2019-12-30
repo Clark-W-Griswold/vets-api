@@ -63,6 +63,9 @@ docker-clean:
 down:
 	@$(COMPOSE_DEV) down
 
+.PHONY: init-ubuntu
+init-ubuntu: ubuntu-install ubuntu-rbenv-asdf-install ubuntu-gem-bundler ubuntu-bundle-install
+
 .PHONY: guard
 guard:
 	@$(BASH_DEV) "bundle exec guard"
@@ -71,7 +74,6 @@ guard:
 lint:
 	@$(BASH_DEV) "bin/rails lint"
 
-.PHONY: migrate
 migrate:
 	@$(BASH_DEV) "bin/rails db:migrate"
 
@@ -94,3 +96,21 @@ spec:
 .PHONY: up
 up: db
 	@$(BASH_DEV) "rm -f tmp/pids/server.pid && foreman start -m all=1,clamd=0,freshclam=0"
+
+.PHONY: migrate
+
+.PHONY: ubuntu-bundle-install
+ubuntu-bundle-install:
+	bundle config enterprise.contribsys.com ba39b787:d439357b && bundle install
+
+.PHONy: ubuntu-gem-bundler
+ubuntu-gem-bundler:
+	gem install bundler
+
+.PHONY: ubuntu-install
+ubuntu-install:
+	./bin/install-ubuntu-packages
+
+.PHONY: ubuntu-rbenv-asdf-install
+ubuntu-rbenv-asdf-install:
+	asdf install

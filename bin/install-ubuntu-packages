@@ -71,7 +71,8 @@ sudo apt install \
   poppler-utils
 
 
-echo "deb http://ppa.launchpad.net/malteworld/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/malteworld-ubuntu-ppa-bionic.list
+# echo "deb http://ppa.launchpad.net/malteworld/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/malteworld-ubuntu-ppa-bionic.list
+sudo add-apt-repository ppa:malteworld/ppa
+sudo apt-get update
 sudo apt update
 sudo apt install pdftk pdftk-java
-
