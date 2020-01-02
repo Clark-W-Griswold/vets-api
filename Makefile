@@ -99,6 +99,10 @@ up: db
 
 .PHONY: migrate
 
+.PHONY: dev
+dev: 
+	rails server
+
 .PHONY: local-certs
 local-certs:
 	./bin/local-certs

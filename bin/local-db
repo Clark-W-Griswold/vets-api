@@ -5,4 +5,7 @@ echo "creating, setting up and seeding local database"
 sudo service redis-server start
 sudo service postgresql start
 
+# run if local user does not exist in created database
+# sudo -u postgres createuser --interactive
+
 rake db:create db:setup db:seed
