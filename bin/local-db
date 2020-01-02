@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "creating, setting up and seeding local database"
+
+sudo service redis-server start
+sudo service postgresql start
+
+rake db:create db:setup db:seed

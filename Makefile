@@ -64,7 +64,7 @@ down:
 	@$(COMPOSE_DEV) down
 
 .PHONY: init-ubuntu
-init-ubuntu: ubuntu-install ubuntu-rbenv-asdf-install ubuntu-gem-bundler ubuntu-bundle-install
+init-ubuntu: ubuntu-install ubuntu-bundler local-certs local-db
 
 .PHONY: guard
 guard:
@@ -99,6 +99,18 @@ up: db
 
 .PHONY: migrate
 
+.PHONY: local-certs
+local-certs:
+	./bin/local-certs
+
+.PHONY: local-db
+local-db:
+	./bin/local-db
+
+.PHONY: ubuntu-bundler
+ubuntu-bundler: ubuntu-gem-bundler ubuntu-bundle-install
+	overcommit --install --sign
+
 .PHONY: ubuntu-bundle-install
 ubuntu-bundle-install:
 	bundle config enterprise.contribsys.com ba39b787:d439357b && bundle install
@@ -108,7 +120,10 @@ ubuntu-gem-bundler:
 	gem install bundler
 
 .PHONY: ubuntu-install
-ubuntu-install:
+ubuntu-install: ubuntu-packages-install ubuntu-rbenv-asdf-install
+
+.PHONY: ubuntu-packages-install
+ubuntu-packages-install:
 	./bin/install-ubuntu-packages
 
 .PHONY: ubuntu-rbenv-asdf-install
