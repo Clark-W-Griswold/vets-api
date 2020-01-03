@@ -113,7 +113,7 @@ local-db:
 
 .PHONY: ubuntu-bundler
 ubuntu-bundler: ubuntu-gem-bundler ubuntu-bundle-install
-	overcommit --install --sign
+	bundle exec overcommit --install --sign
 
 .PHONY: ubuntu-bundle-install
 ubuntu-bundle-install:
